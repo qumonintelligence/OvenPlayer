@@ -23,16 +23,10 @@ const ContextPanel = function($container, api, position){
     const events = {
         "click .op-context-item" : function(event, $current, template){
             event.preventDefault();
-
-            window.open(
-                'https://github.com/AirenSoft/OvenPlayer',
-                '_blank'
-            );
         }
     };
 
     return OvenTemplate($container, "ContextPanel", api.getConfig(), position, events, onRendered, onDestroyed );
 
 };
-
-export default ContextPanel;
+export default ()=>null;

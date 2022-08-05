@@ -31,7 +31,7 @@ const Configurator = function(options, provider){
             adClient : "googleima",
             currentProtocolOnly : false,
             systemText : null,
-            lang : "en",
+            lang : "cn",
             loadingRetryCount: 0,
             expandFullScreenUI: true,
             fullscreenOption: null,
