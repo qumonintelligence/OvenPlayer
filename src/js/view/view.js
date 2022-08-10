@@ -352,10 +352,25 @@ const View = function($container){
             }
         });
 
+        let reconnect;
+
         api.on(PLAYER_STATE, function(data){
             if(data && data.newstate){
                 playerState = data.newstate;
+
+                if(playerState === STATE_ERROR) {
+                    clearInterval(reconnect);
+                    reconnect = setInterval(function () {
+                        api.play();
+                    }, 5000);
+                }
+
+                if(playerState === STATE_COMPLETE) {
+                    api.play();
+                }
+
                 if(data.newstate === STATE_PLAYING || (data.newstate === STATE_AD_PLAYING && screenSize === "xsmall")){
+                    clearInterval(reconnect);
                     setHide(false, true);
                 }else{
                     setHide(false);
