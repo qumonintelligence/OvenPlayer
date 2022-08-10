@@ -225,32 +225,32 @@ export const SYSTEM_TEXT = [
                 },
                 501: {
                     "code": 501,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebSocket 连接失败。"
                 },
                 502: {
                     "code": 502,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebRTC addIceCandidate 失败。"
                 },
                 503: {
                     "code": 503,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebRTC setRemoteDescription 失败。"
                 },
                 504: {
                     "code": 504,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebRTC 对等体 createOffer 失败。"
                 },
                 505: {
                     "code": 505,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebRTC setLocalDescription 失败。"
                 },
                 506: {
                     "code": 506,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "WebRTC 内部错误。"
                 },
                 510: {
@@ -260,12 +260,12 @@ export const SYSTEM_TEXT = [
                 },
                 511: {
                     "code": 511,
-                    "message": "低延迟 (OME) 连接意外终止。",
+                    "message": "低延迟 连接意外终止。",
                     "reason": "连接意外结束。"
                 },
                 512: {
                     "code": 512,
-                    "message": "与低延迟 (OME) 服务器的连接失败。",
+                    "message": "与低延迟 服务器的连接失败。",
                     "reason": "连接超时。"
                 }
             }

@@ -358,6 +358,8 @@ const View = function($container){
             if(data && data.newstate){
                 playerState = data.newstate;
 
+                // console.log({playerState})
+
                 if(playerState === STATE_ERROR) {
                     clearInterval(reconnect);
                     reconnect = setInterval(function () {
