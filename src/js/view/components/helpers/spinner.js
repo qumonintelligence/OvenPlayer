@@ -3,6 +3,9 @@
  */
 import OvenTemplate from 'view/engine/OvenTemplate';
 
+
+let spinnerTimeout = 0
+
 const Spinner = function($container, api){
     let $spinner = "";
 
@@ -15,10 +18,20 @@ const Spinner = function($container, api){
     const events = {};
 
     return Object.assign(OvenTemplate($container, "Spinner", api.getConfig(), null, events, onRendered, onDestroyed ), {
-        show: function (isShow) {
+        show: function (isShow, force= false) {
             if(isShow){
-                $spinner.show();
+                clearTimeout(spinnerTimeout);
+                if(force) {
+                    $spinner.show();  
+                } else {
+                 
+                    spinnerTimeout = setTimeout(()=>{ 
+                        $spinner.show();
+                    }, 5000)
+                }
+            
             }else{
+                clearTimeout(spinnerTimeout);
                 $spinner.hide();
             }
         }

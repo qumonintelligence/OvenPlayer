@@ -5,6 +5,7 @@ import OvenTemplate from 'view/engine/OvenTemplate';
 import Helpers from 'view/components/helpers/main';
 import Controls from 'view/components/controls/main';
 import PanelManager from "view/global/PanelManager";
+import Spinner from "view/components/helpers/spinner";
 import ContextPanel from 'view/components/helpers/contextPanel';
 import LA$ from 'utils/likeA$';
 import ResizeSensor from "utils/resize-sensor";
@@ -328,7 +329,6 @@ const View = function($container){
             if (!showControlBar) {
                 $playerRoot.addClass("op-no-controls");
             }
-
         });
 
         api.on(ERROR, function(error) {
@@ -338,6 +338,9 @@ const View = function($container){
                     // controls.destroy();
                     // controls = null;
                 }
+
+                const spinner = Spinner($current, api);
+                spinner.show(true);
             }
 
         });
@@ -358,11 +361,12 @@ const View = function($container){
             if(data && data.newstate){
                 playerState = data.newstate;
 
-                // console.log({playerState})
+                // console.log({PLAYER_STATE: playerState})
 
-                if(playerState === STATE_ERROR) {
+                if(playerState === STATE_ERROR || playerState === STATE_STALLED) {
                     clearInterval(reconnect);
                     reconnect = setInterval(function () {
+                        api.load();
                         api.play();
                     }, 5000);
                 }

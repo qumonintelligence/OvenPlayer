@@ -182,6 +182,8 @@ const Helpers = function($container, api){
                     createBigButton(data.newstate);
                 } else{
 
+                    
+
                     if(data.newstate === STATE_STALLED || data.newstate === STATE_LOADING || data.newstate === STATE_AD_LOADING){
 
                         dont_show_message = false;
@@ -191,7 +193,13 @@ const Helpers = function($container, api){
                         if (bigButton) {
                             bigButton.destroy();
                         }
-                        spinner.show(true);
+                     
+                        if(data.newstate === STATE_LOADING) {
+                            spinner.show(true, true);
+                        } else {
+                            spinner.show(true);
+                        }
+
                     }else{
                         if(!qualityLevelChanging){
                             spinner.show(false);
